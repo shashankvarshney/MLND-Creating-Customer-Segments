@@ -47,6 +47,7 @@ def pca_results(good_data, pca):
 		ax.text(i-0.40, ax.get_ylim()[1] + 0.05, "Explained Variance\n          %.4f"%(ev))
 
 	# Return a concatenated DataFrame
+	plt.savefig("pca_result.png", bbox_inches = "tight")
 	return pd.concat([variance_ratios, components], axis = 1)
 
 def cluster_results(reduced_data, preds, centers, pca_samples):
@@ -81,6 +82,7 @@ def cluster_results(reduced_data, preds, centers, pca_samples):
 
 	# Set plot title
 	ax.set_title("Cluster Learning on PCA-Reduced Data - Centroids Marked by Number\nTransformed Sample Data Marked by Black Cross");
+	plt.savefig("cluster_result.png", bbox_inches = "tight")
 
 
 def biplot(good_data, reduced_data, pca):
@@ -119,6 +121,7 @@ def biplot(good_data, reduced_data, pca):
     ax.set_xlabel("Dimension 1", fontsize=14)
     ax.set_ylabel("Dimension 2", fontsize=14)
     ax.set_title("PC plane with original feature projections.", fontsize=16);
+    plt.savefig("biplot_result.png", bbox_inches = "tight")
     return ax
     
 
@@ -161,3 +164,4 @@ def channel_results(reduced_data, outliers, pca_samples):
 
 	# Set plot title
 	ax.set_title("PCA-Reduced Data Labeled by 'Channel'\nTransformed Sample Data Circled");
+	plt.savefig("channel_result.png", bbox_inches = "tight")
